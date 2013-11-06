@@ -1683,17 +1683,17 @@ class TestMinitestUnitTestCase < Minitest::Test
     assert_equal expected, sample_test_case.runnable_methods
   end
 
-  def test_i_suck_and_my_tests_are_order_dependent_bang_sets_test_order_alpha
+  def test_my_tests_are_order_dependent_bang_sets_test_order_alpha
     @assertion_count = 0
 
     shitty_test_case = Class.new Minitest::Test
 
-    shitty_test_case.i_suck_and_my_tests_are_order_dependent!
+    shitty_test_case.my_tests_are_order_dependent!
 
     assert_equal :alpha, shitty_test_case.test_order
   end
 
-  def test_i_suck_and_my_tests_are_order_dependent_bang_does_not_warn
+  def test_my_tests_are_order_dependent_bang_does_not_warn
     @assertion_count = 0
 
     shitty_test_case = Class.new Minitest::Test
@@ -1701,7 +1701,7 @@ class TestMinitestUnitTestCase < Minitest::Test
     def shitty_test_case.test_order ; :lol end
 
     assert_silent do
-      shitty_test_case.i_suck_and_my_tests_are_order_dependent!
+      shitty_test_case.my_tests_are_order_dependent!
     end
   end
 
